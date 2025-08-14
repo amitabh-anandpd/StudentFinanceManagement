@@ -203,10 +203,10 @@ textarea::placeholder {
 .category-btn[data-category="health"].selected { background: #f97316; border-color: #f97316; }
 
 .category-btn[data-category="bills"]:hover,
-.category-btn[data-category="bills"].selected { background: #6b7280; border-color: #6b7280; }
+.category-btn[data-category="bills"].selected { background: #93acdf; border-color: #6b7280; }
 
 .category-btn[data-category="other"]:hover,
-.category-btn[data-category="other"].selected { background: #64748b; border-color: #64748b; }
+.category-btn[data-category="other"].selected { background: #5a91dd; border-color: #64748b; }
 
 /* Checkbox */
 .checkbox-label {
