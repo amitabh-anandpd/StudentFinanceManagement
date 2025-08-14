@@ -97,7 +97,9 @@
 
 .input-icon {
     position: absolute;
-    left: var(--space-md);
+    left: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
     color: var(--text-muted);
     font-weight: var(--font-weight-bold);
     z-index: 1;
