@@ -11,7 +11,7 @@
 
 /* Outer container */
 .expense-form {
-  max-width: 500px;
+  max-width: 1000px;
   margin: 2rem auto;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.05);
