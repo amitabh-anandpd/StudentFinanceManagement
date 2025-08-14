@@ -9,25 +9,85 @@
     height: fit-content;
 }
 
+/* Outer container */
 .expense-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
 }
 
+/* Form group styling */
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
+  margin-bottom: 1.2rem;
 }
 
 .form-group label {
-    font-weight: var(--font-weight-medium);
-    color: var(--text-primary);
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #00d4a8; /* Accent color */
 }
+
+/* Inputs, selects, textareas */
+.expense-form input[type="text"],
+.expense-form input[type="number"],
+.expense-form input[type="date"],
+.expense-form textarea,
+.expense-form select {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s, background 0.3s;
+}
+
+.expense-form input:focus,
+.expense-form textarea:focus,
+.expense-form select:focus {
+  border-color: #00d4a8;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Checkbox styling */
+.expense-form input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 0.5rem;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #00d4a8, #00a8d4);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #00a8d4, #00d4a8);
+}
+
+/* Icon styling inside labels */
+.form-group label i {
+  margin-right: 0.5rem;
+}
+
 
 .input-group {
     position: relative;
