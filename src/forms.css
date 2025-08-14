@@ -51,13 +51,6 @@
   transition: border 0.3s, background 0.3s;
 }
 
-.expense-form input:focus,
-.expense-form textarea:focus,
-.expense-form select:focus {
-  border-color: #00d4a8;
-  background: rgba(0, 0, 0, 0.4);
-}
-
 /* Checkbox styling */
 .expense-form input[type="checkbox"] {
   transform: scale(1.2);
@@ -126,18 +119,11 @@ input[type="number"] {
     padding-left: var(--space-2xl);
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-    background: rgba(255, 255, 255, 0.1);
-}
 
 input::placeholder,
 textarea::placeholder {
     color: var(--text-muted);
+    left: 2rem;
 }
 
 /* Category Grid */
