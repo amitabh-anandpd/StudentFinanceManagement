@@ -107,29 +107,31 @@
 /* Center modal */
 .auth-modal-overlay {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* start from below navbar */
     justify-content: center;
-    min-height: calc(100vh - 70px); /* account for navbar */
-    padding: 2rem;
+    min-height: calc(100vh - 80px); /* leave space for navbar */
+    padding: 4rem 2rem;
+    margin-top: 80px; /* navbar height */
 }
 
-/* Limit modal width */
+/* Wider modal */
 .auth-modal {
     width: 100%;
-    max-width: 420px;
-    padding: 2rem;
+    max-width: 600px; /* was 420px */
+    padding: 2rem 2.5rem;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* Better alignment for header tabs */
+/* Tabs stay the same */
 .auth-tabs {
     display: flex;
     justify-content: space-around;
     margin-bottom: 1.5rem;
 }
+
 
 .auth-tab {
     flex: 1;
