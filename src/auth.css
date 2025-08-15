@@ -31,7 +31,7 @@
     transform: translateY(-2px);
 }
 
-/* Auth Modal */
+/* Auth Modal 
 .auth-modal-overlay {
     position: fixed;
     top: 0;
@@ -73,7 +73,7 @@
 .auth-header {
     margin-bottom: var(--space-2xl);
 }
-
+/*
 .auth-tabs {
     display: flex;
     background: rgba(255, 255, 255, 0.05);
@@ -102,6 +102,50 @@
     background: var(--primary);
     color: white;
     box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+*/
+/* Center modal */
+.auth-modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 70px); /* account for navbar */
+    padding: 2rem;
+}
+
+/* Limit modal width */
+.auth-modal {
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Better alignment for header tabs */
+.auth-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.auth-tab.active {
+    background: var(--primary-gradient);
+    color: white;
 }
 
 .auth-tab:hover:not(.active) {
