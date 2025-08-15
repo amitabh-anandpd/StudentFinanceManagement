@@ -10,6 +10,7 @@ export default defineConfig({
         addExpense: resolve(__dirname, 'add-expense.html'),
         recurring: resolve(__dirname, 'recurring.html'),
         settings: resolve(__dirname, 'settings.html'),
+        login: resolve(__dirname, 'login.html'),
       },
     },
     outDir: 'dist',
