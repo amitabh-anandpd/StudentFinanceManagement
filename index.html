@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Budget Buddy</title>
   <link rel="stylesheet" href="src/landing.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
     <nav class="navbar">
       <h1 class="logo">Budget Buddy</h1>
       <button class="btn" onclick="window.location.href='/login.html'">Login / Signup</button>
+      <div class="theme-toggle">
+          <button id="theme-toggle" class="theme-btn">
+              <i class="fas fa-moon"></i>
+          </button>
+      </div>
     </nav>
   </header>
 
@@ -24,5 +30,6 @@
   <footer>
     <p>© 2025 Budget Buddy. All rights reserved.</p>
   </footer>
+  <script type="module" src="src/theme-manager.js"></script>
 </body>
 </html>

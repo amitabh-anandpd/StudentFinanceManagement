@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="src/login.css">
 </head>
 <body>
+    <nav class="navbar">
+      <h1 class="logo">Budget Buddy</h1>
+      <div class="theme-toggle">
+          <button id="theme-toggle" class="theme-btn">
+              <i class="fas fa-moon"></i>
+          </button>
+      </div>
+    </nav>
     <div class="auth-container">
         <div class="auth-card glass-card">
             <div class="auth-tabs">
@@ -55,6 +63,7 @@
     </div>
 
     <script type="module" src="src/theme.js"></script>
+    <script type="module" src="src/theme-manager.js"></script>
     <script type="module" src="src/login.js"></script>
 </body>
 </html>
