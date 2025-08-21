@@ -153,10 +153,10 @@ class QRScannerManager {
             if (this.scanner) {
                 this.scanner.stop();
                 this.scanner.destroy();
+                    if (this.scanner._activeStream) {
+                    this.scanner._activeStream.getTracks().forEach(track => track.stop());
+                }
                 this.scanner = null;
-            }
-            if (this.scanner._activeStream) {
-                this.scanner._activeStream.getTracks().forEach(track => track.stop());
             }
 
             this.isScanning = false;

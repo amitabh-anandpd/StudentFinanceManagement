@@ -96,7 +96,7 @@ class AnalyticsManager {
                             label: function(context) {
                                 const total = context.dataset.data.reduce((a, b) => a + b, 0);
                                 const percentage = Math.round((context.raw / total) * 100);
-                                return `${context.label}: $${context.raw} (${percentage}%)`;
+                                return `${context.label}: ₹${context.raw} (${percentage}%)`;
                             }
                         }
                     }
@@ -154,7 +154,7 @@ class AnalyticsManager {
                         cornerRadius: 8,
                         callbacks: {
                             label: function(context) {
-                                return `Spending: $${context.formattedValue}`;
+                                return `Spending: ₹${context.formattedValue}`;
                             }
                         }
                     }
@@ -177,7 +177,7 @@ class AnalyticsManager {
                         ticks: {
                             color: 'rgba(148, 163, 184, 0.8)',
                             callback: function(value) {
-                                return '$' + value;
+                                return '₹' + value;
                             }
                         }
                     }
@@ -235,7 +235,7 @@ class AnalyticsManager {
                             label: function(context) {
                                 const total = context.dataset.data.reduce((a, b) => a + b, 0);
                                 const percentage = Math.round((context.raw / total) * 100);
-                                return `${context.label}: $${context.raw} (${percentage}%)`;
+                                return `${context.label}: ₹${context.raw} (${percentage}%)`;
                             }
                         }
                     }
