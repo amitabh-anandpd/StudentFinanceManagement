@@ -204,54 +204,43 @@ class DashboardManager {
     animateCounters() {
         const counters = document.querySelectorAll('.stat-value, .percentage, .amount');
 
-        const animateValue = (element, start, end, duration, type) => {
-            const range = end - start;
-            const increment = range / (duration / 16);
+        counters.forEach(counter => {
+            let type = counter.dataset.type; // "currency", "percentage", or "number"
+            let rawText = counter.textContent;
+            let finalValue = Number(rawText.replace(/[^\d.-]/g, '')); // strip non-digits
+
+            if (isNaN(finalValue)) return; // skip invalid cases
+
+            let start = 0;
+            let duration = 1500; // 1.5s
+            let stepTime = 16;
+            let increment = finalValue / (duration / stepTime);
             let current = start;
 
-            const timer = setInterval(() => {
+            let timer = setInterval(() => {
                 current += increment;
-                if (current >= end) {
-                    current = end;
+                if (current >= finalValue) {
+                    current = finalValue;
                     clearInterval(timer);
                 }
 
                 let displayValue = Math.round(current);
 
-                if (type === 'currency') {
-                    displayValue = this.formatCurrency(displayValue);
-                } else if (type === 'percentage') {
-                    displayValue = displayValue + '%';
+                if (type === "currency") {
+                    displayValue = new Intl.NumberFormat("en-IN", {
+                        style: "currency",
+                        currency: "INR",
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 2
+                    }).format(displayValue);
+                } else if (type === "percentage") {
+                    displayValue = displayValue + "%";
                 }
 
-                element.textContent = displayValue;
-            }, 16);
-        };
-
-        setTimeout(() => {
-            counters.forEach(counter => {
-                let finalValue = 0;
-                let type = null;
-
-                if (counter.dataset.type === 'currency') {
-                    // Safely parse currency string back to number
-                    finalValue = Number(counter.textContent.replace(/[^\d.-]/g, ''));
-                    type = 'currency';
-                } else if (counter.dataset.type === 'percentage') {
-                    finalValue = Number(counter.textContent.replace(/[^\d.-]/g, ''));
-                    type = 'percentage';
-                } else {
-                    finalValue = Number(counter.textContent.replace(/[^\d.-]/g, ''));
-                }
-
-                if (finalValue > 0) {
-                    animateValue(counter, 0, finalValue, 1000, type);
-                }
-            });
-        }, 500);
+                counter.textContent = displayValue;
+            }, stepTime);
+        });
     }
-
-
 
     updateElement(id, value) {
         const element = document.getElementById(id);
