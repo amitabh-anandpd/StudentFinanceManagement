@@ -14,6 +14,7 @@ export default defineConfig({
         login: resolve(__dirname, 'login.html'),
         profile: resolve(__dirname, 'profile.html'),
         billSplit: resolve(__dirname, 'bill-split.html'),
+        qrScanner: resolve(__dirname, 'qr-scanner.html'),
       },
     },
     outDir: 'dist',
