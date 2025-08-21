@@ -210,7 +210,7 @@ class LandingManager {
                 displayValue = (displayValue / 1000).toFixed(1) + 'K';
             }
             
-            element.textContent = displayValue + suffix.replace('K', '');
+            element.textContent = suffix.replace('K', '') + displayValue;
         }, 16);
     }
 
