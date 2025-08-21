@@ -797,6 +797,176 @@ input:checked + .slider:before {
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
 }
 
+/* Friends List Section */
+.friends-list-card {
+    grid-column: span 2;
+}
+
+.add-friend-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+}
+
+.add-friend-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.friends-container {
+    margin-top: var(--space-lg);
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: var(--space-sm);
+}
+
+.friends-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.friends-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.friends-container::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+}
+
+.friend-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-fast);
+}
+
+.friend-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--glass-shadow);
+}
+
+.friend-card .friend-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--glass-border);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.friend-card .friend-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.friend-card .friend-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.friend-card .friend-info h4 {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+}
+
+.friend-card .friend-info p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.friend-status {
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-medium);
+    padding: 2px var(--space-xs);
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.friend-status.online {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.friend-status.offline {
+    background: rgba(148, 163, 184, 0.1);
+    color: var(--text-muted);
+}
+
+.friend-status.away {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.friend-actions {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.friend-action-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.875rem;
+}
+
+.friend-action-btn.message {
+    background: rgba(14, 165, 233, 0.1);
+    color: var(--secondary);
+}
+
+.friend-action-btn.message:hover {
+    background: var(--secondary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.friend-action-btn.remove {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.friend-action-btn.remove:hover {
+    background: var(--danger);
+    color: white;
+    transform: scale(1.1);
+}
+
 /* Modal Styles */
 .profile-modal {
     position: fixed;
@@ -966,6 +1136,10 @@ input:checked + .slider:before {
         grid-template-columns: 1fr;
     }
     
+    .friends-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .security-item {
         flex-direction: column;
         align-items: stretch;
@@ -988,6 +1162,15 @@ input:checked + .slider:before {
     
     .modal-content {
         width: 95%;
+    }
+    
+    .friend-card {
+        padding: var(--space-md);
+    }
+    
+    .friend-card .friend-avatar {
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -1018,6 +1201,17 @@ input:checked + .slider:before {
         width: 48px;
         height: 48px;
         font-size: 1.25rem;
+    }
+    
+    .friend-actions {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+    
+    .friend-action-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
     }
 }
 
