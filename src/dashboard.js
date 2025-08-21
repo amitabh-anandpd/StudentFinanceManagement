@@ -127,7 +127,7 @@ class DashboardManager {
                         ticks: {
                             color: 'rgba(148, 163, 184, 0.8)',
                             callback: function(value) {
-                                return '₹' + value;
+                                return 'Rs.' + value;
                             }
                         }
                     }
@@ -209,7 +209,7 @@ class DashboardManager {
             const increment = range / (duration / 16);
             let current = start;
             const isPercentage = element.textContent.includes('%');
-            const isCurrency = element.textContent.includes('₹');
+            const isCurrency = element.textContent.includes('Rs. ');
             
             const timer = setInterval(() => {
                 current += increment;
