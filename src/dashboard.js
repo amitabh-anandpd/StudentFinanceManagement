@@ -203,14 +203,11 @@ class DashboardManager {
 
     animateCounters() {
         const counters = document.querySelectorAll('.stat-value, .percentage, .amount');
-        
-        const animateValue = (element, start, end, duration) => {
+
+        const animateValue = (element, start, end, duration, type) => {
             const range = end - start;
             const increment = range / (duration / 16);
             let current = start;
-
-            const isPercentage = element.dataset.type === 'percentage';
-            const isCurrency = element.dataset.type === 'currency';
 
             const timer = setInterval(() => {
                 current += increment;
@@ -220,9 +217,10 @@ class DashboardManager {
                 }
 
                 let displayValue = Math.round(current);
-                if (isCurrency) {
+
+                if (type === 'currency') {
                     displayValue = this.formatCurrency(displayValue);
-                } else if (isPercentage) {
+                } else if (type === 'percentage') {
                     displayValue = displayValue + '%';
                 }
 
@@ -230,16 +228,29 @@ class DashboardManager {
             }, 16);
         };
 
-        // Animate elements on page load
         setTimeout(() => {
             counters.forEach(counter => {
-                const finalValue = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                let finalValue = 0;
+                let type = null;
+
+                if (counter.dataset.type === 'currency') {
+                    // Safely parse currency string back to number
+                    finalValue = Number(counter.textContent.replace(/[^\d.-]/g, ''));
+                    type = 'currency';
+                } else if (counter.dataset.type === 'percentage') {
+                    finalValue = Number(counter.textContent.replace(/[^\d.-]/g, ''));
+                    type = 'percentage';
+                } else {
+                    finalValue = Number(counter.textContent.replace(/[^\d.-]/g, ''));
+                }
+
                 if (finalValue > 0) {
-                    animateValue(counter, 0, finalValue, 1000);
+                    animateValue(counter, 0, finalValue, 1000, type);
                 }
             });
         }, 500);
     }
+
 
 
     updateElement(id, value) {
