@@ -127,7 +127,7 @@ class DashboardManager {
                         ticks: {
                             color: 'rgba(148, 163, 184, 0.8)',
                             callback: function(value) {
-                                return '$' + value;
+                                return '₹' + value;
                             }
                         }
                     }
