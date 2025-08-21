@@ -209,7 +209,7 @@ class DashboardManager {
             const increment = range / (duration / 16);
             let current = start;
             const isPercentage = element.textContent.includes('%');
-            const isCurrency = element.textContent.includes('$');
+            const isCurrency = element.textContent.includes('₹');
             
             const timer = setInterval(() => {
                 current += increment;
