@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Budget Buddy - Bill Split</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/main.css">
+    <link rel="stylesheet" href="src/bill-split.css">
+</head>
+<body>
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-piggy-bank"></i>
+                <span>Budget Buddy</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="add-expense.html" class="nav-link">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Add Expense</span>
+                </a>
+                <a href="analytics.html" class="nav-link">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="recurring.html" class="nav-link">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Recurring</span>
+                </a>
+                <a href="qr-scanner.html" class="nav-link">
+                    <i class="fas fa-qrcode"></i>
+                    <span>QR Scanner</span>
+                </a>
+                <a href="bill-split.html" class="nav-link active">
+                    <i class="fas fa-receipt"></i>
+                    <span>Bill Split</span>
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <div class="dropdown" id="user-dropdown">
+                    <button class="dropdown-btn" id="dropdown-toggle">
+                        <i class="fas fa-user-circle"></i>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </button>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                        <button class="dropdown-item" id="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark Mode</span>
+                        </button>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item logout" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-hamburger" id="nav-hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Bill Split</h1>
+                <p>Split bills with friends and manage pending requests.</p>
+            </div>
+
+            <div class="bill-split-layout">
+                <!-- Bill Selection & Split Section -->
+                <div class="glass-card split-bill-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-receipt"></i> Split a Bill</h3>
+                    </div>
+                    
+                    <div class="split-form" id="split-form">
+                        <div class="form-group">
+                            <label for="bill-amount">Bill Amount ($)</label>
+                            <div class="input-group">
+                                <span class="input-icon">$</span>
+                                <input type="number" id="bill-amount" step="0.01" placeholder="0.00" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill-description">Description</label>
+                            <input type="text" id="bill-description" placeholder="Dinner at restaurant, groceries, etc." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select Friends to Split With</label>
+                            <div class="friends-selection" id="friends-selection">
+                                <div class="friend-item" data-friend-id="1">
+                                    <div class="friend-avatar">
+                                        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" alt="Alex">
+                                    </div>
+                                    <div class="friend-info">
+                                        <span class="friend-name">Alex Johnson</span>
+                                        <span class="friend-email">alex@email.com</span>
+                                    </div>
+                                    <label class="friend-checkbox">
+                                        <input type="checkbox" name="friends" value="1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="friend-item" data-friend-id="2">
+                                    <div class="friend-avatar">
+                                        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" alt="Emma">
+                                    </div>
+                                    <div class="friend-info">
+                                        <span class="friend-name">Emma Davis</span>
+                                        <span class="friend-email">emma@email.com</span>
+                                    </div>
+                                    <label class="friend-checkbox">
+                                        <input type="checkbox" name="friends" value="2">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="friend-item" data-friend-id="3">
+                                    <div class="friend-avatar">
+                                        <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" alt="Mike">
+                                    </div>
+                                    <div class="friend-info">
+                                        <span class="friend-name">Mike Wilson</span>
+                                        <span class="friend-email">mike@email.com</span>
+                                    </div>
+                                    <label class="friend-checkbox">
+                                        <input type="checkbox" name="friends" value="3">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="friend-item" data-friend-id="4">
+                                    <div class="friend-avatar">
+                                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face" alt="Sarah">
+                                    </div>
+                                    <div class="friend-info">
+                                        <span class="friend-name">Sarah Brown</span>
+                                        <span class="friend-email">sarah@email.com</span>
+                                    </div>
+                                    <label class="friend-checkbox">
+                                        <input type="checkbox" name="friends" value="4">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="split-btn" id="split-btn" disabled>
+                            <i class="fas fa-calculator"></i>
+                            Calculate Split
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pending Splits Section -->
+                <div class="glass-card pending-splits-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-clock"></i> Pending Splits</h3>
+                        <span class="pending-count" id="pending-count">3 pending</span>
+                    </div>
+                    
+                    <div class="pending-splits-list" id="pending-splits-list">
+                        <div class="pending-split-item">
+                            <div class="split-info">
+                                <div class="split-avatar">
+                                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop&crop=face" alt="Alex">
+                                </div>
+                                <div class="split-details">
+                                    <h4>Dinner at Italian Restaurant</h4>
+                                    <p>From: Alex Johnson</p>
+                                    <span class="split-date">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="split-amount">
+                                <span class="amount">$28.50</span>
+                                <div class="split-actions">
+                                    <button class="action-btn accept" data-split-id="1">
+                                        <i class="fas fa-check"></i>
+                                        Accept
+                                    </button>
+                                    <button class="action-btn reject" data-split-id="1">
+                                        <i class="fas fa-times"></i>
+                                        Reject
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pending-split-item">
+                            <div class="split-info">
+                                <div class="split-avatar">
+                                    <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop&crop=face" alt="Emma">
+                                </div>
+                                <div class="split-details">
+                                    <h4>Grocery Shopping</h4>
+                                    <p>From: Emma Davis</p>
+                                    <span class="split-date">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="split-amount">
+                                <span class="amount">$15.75</span>
+                                <div class="split-actions">
+                                    <button class="action-btn accept" data-split-id="2">
+                                        <i class="fas fa-check"></i>
+                                        Accept
+                                    </button>
+                                    <button class="action-btn reject" data-split-id="2">
+                                        <i class="fas fa-times"></i>
+                                        Reject
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pending-split-item">
+                            <div class="split-info">
+                                <div class="split-avatar">
+                                    <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop&crop=face" alt="Mike">
+                                </div>
+                                <div class="split-details">
+                                    <h4>Movie Tickets</h4>
+                                    <p>From: Mike Wilson</p>
+                                    <span class="split-date">3 days ago</span>
+                                </div>
+                            </div>
+                            <div class="split-amount">
+                                <span class="amount">$12.00</span>
+                                <div class="split-actions">
+                                    <button class="action-btn accept" data-split-id="3">
+                                        <i class="fas fa-check"></i>
+                                        Accept
+                                    </button>
+                                    <button class="action-btn reject" data-split-id="3">
+                                        <i class="fas fa-times"></i>
+                                        Reject
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Split Confirmation Modal -->
+    <div class="split-modal" id="split-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-calculator"></i> Confirm Split</h3>
+                <button class="close-modal-btn" id="close-split-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="split-summary" id="split-summary">
+                <div class="summary-header">
+                    <h4 id="modal-bill-description">Dinner at Restaurant</h4>
+                    <span class="total-amount" id="modal-total-amount">$120.00</span>
+                </div>
+                
+                <div class="split-breakdown" id="split-breakdown">
+                    <!-- Split amounts will be populated here -->
+                </div>
+                
+                <div class="my-amount-section">
+                    <div class="amount-item my-amount">
+                        <div class="person-info">
+                            <div class="person-avatar">
+                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop&crop=face" alt="Me">
+                            </div>
+                            <span class="person-name">You</span>
+                        </div>
+                        <div class="amount-input">
+                            <span class="amount-display" id="my-amount-display">$30.00</span>
+                            <span class="amount-note">(auto-calculated)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="cancel-btn" id="cancel-split">Cancel</button>
+                <button class="confirm-btn" id="confirm-split">
+                    <i class="fas fa-paper-plane"></i>
+                    Send Split Requests
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="animated-background">
+        <div class="water-fill"></div>
+    </div>
+
+    <script src="src/theme.js"></script>
+    <script src="src/navigation.js"></script>
+    <script src="src/bill-split.js"></script>
+</body>
+</html>

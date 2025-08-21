@@ -13,6 +13,7 @@ export default defineConfig({
         settings: resolve(__dirname, 'settings.html'),
         login: resolve(__dirname, 'login.html'),
         profile: resolve(__dirname, 'profile.html'),
+        billSplit: resolve(__dirname, 'bill-split.html'),
       },
     },
     outDir: 'dist',
