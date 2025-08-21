@@ -208,23 +208,24 @@ class DashboardManager {
             const range = end - start;
             const increment = range / (duration / 16);
             let current = start;
-            const isPercentage = element.textContent.includes('%');
-            const isCurrency = element.textContent.includes('Rs. ');
-            
+
+            const isPercentage = element.dataset.type === 'percentage';
+            const isCurrency = element.dataset.type === 'currency';
+
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= end) {
                     current = end;
                     clearInterval(timer);
                 }
-                
+
                 let displayValue = Math.round(current);
                 if (isCurrency) {
                     displayValue = this.formatCurrency(displayValue);
                 } else if (isPercentage) {
                     displayValue = displayValue + '%';
                 }
-                
+
                 element.textContent = displayValue;
             }, 16);
         };
@@ -239,6 +240,7 @@ class DashboardManager {
             });
         }, 500);
     }
+
 
     updateElement(id, value) {
         const element = document.getElementById(id);
