@@ -93,9 +93,9 @@
                     
                     <div class="split-form" id="split-form">
                         <div class="form-group">
-                            <label for="bill-amount">Bill Amount ($)</label>
+                            <label for="bill-amount">Bill Amount (₹)</label>
                             <div class="input-group">
-                                <span class="input-icon">$</span>
+                                <span class="input-icon">₹</span>
                                 <input type="number" id="bill-amount" step="0.01" placeholder="0.00" required>
                             </div>
                         </div>
@@ -190,7 +190,7 @@
                                 </div>
                             </div>
                             <div class="split-amount">
-                                <span class="amount">$28.50</span>
+                                <span class="amount">₹28.50</span>
                                 <div class="split-actions">
                                     <button class="action-btn accept" data-split-id="1">
                                         <i class="fas fa-check"></i>
@@ -216,7 +216,7 @@
                                 </div>
                             </div>
                             <div class="split-amount">
-                                <span class="amount">$15.75</span>
+                                <span class="amount">₹15.75</span>
                                 <div class="split-actions">
                                     <button class="action-btn accept" data-split-id="2">
                                         <i class="fas fa-check"></i>
@@ -242,7 +242,7 @@
                                 </div>
                             </div>
                             <div class="split-amount">
-                                <span class="amount">$12.00</span>
+                                <span class="amount">₹12.00</span>
                                 <div class="split-actions">
                                     <button class="action-btn accept" data-split-id="3">
                                         <i class="fas fa-check"></i>
@@ -275,7 +275,7 @@
             <div class="split-summary" id="split-summary">
                 <div class="summary-header">
                     <h4 id="modal-bill-description">Dinner at Restaurant</h4>
-                    <span class="total-amount" id="modal-total-amount">$120.00</span>
+                    <span class="total-amount" id="modal-total-amount">₹120.00</span>
                 </div>
                 
                 <div class="split-breakdown" id="split-breakdown">
@@ -291,7 +291,7 @@
                             <span class="person-name">You</span>
                         </div>
                         <div class="amount-input">
-                            <span class="amount-display" id="my-amount-display">$30.00</span>
+                            <span class="amount-display" id="my-amount-display">₹30.00</span>
                             <span class="amount-note">(auto-calculated)</span>
                         </div>
                     </div>
@@ -312,8 +312,8 @@
         <div class="water-fill"></div>
     </div>
 
-    <script src="src/theme.js"></script>
-    <script src="src/navigation.js"></script>
-    <script src="src/bill-split.js"></script>
+    <script type="module" src="src/theme.js"></script>
+    <script type="module" src="src/navigation.js"></script>
+    <script type="module" src="src/bill-split.js"></script>
 </body>
 </html>
